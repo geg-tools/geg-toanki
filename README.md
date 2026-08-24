@@ -2,15 +2,15 @@
 
 ## Passos
 
-- [ ] Configurar o comando CLI
-- [ ] Implementar leitura de argumentos
-- [ ] Detectar o tipo de arquivo
-- [ ] Implementar parser de Markdown
+- [x] Configurar o comando CLI
+- [x] Implementar leitura de argumentos
+- [x] Detectar o tipo de arquivo
+- [x] Implementar parser de Markdown
 - [ ] Implementar parser de PDF
 - [ ] Criar modelo de documento
-- [ ] Criar modelo de card
-- [ ] Implementar geração de cards
-- [ ] Integrar modelo de IA
+- [x] Criar modelo de card
+- [x] Implementar geração de cards
+- [x] Integrar modelo de IA
 - [ ] Implementar divisão do conteúdo em chunks
 - [ ] Implementar validação dos cards
 - [ ] Implementar preview no terminal
@@ -21,3 +21,10 @@
 - [ ] Implementar tratamento de erros
 - [ ] Criar testes automatizados
 - [ ] Documentar o projeto
+
+### Ideias
+
+- Opção de salvar resumo de PDFs em .md em local indicado
+- Opção de gerar .apkg
+- Opção de deck ser a estrutura de pastas do arquivo
+- Caso seja uma pasta, chamar recursivamente a função principal
