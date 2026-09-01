@@ -9,6 +9,7 @@ authors = [
 requires-python = ">=3.14"
 dependencies = [
     "dotenv>=0.9.9",
+    "geg-tomd",
     "google-genai>=2.19.0",
     "requests>=2.34.2",
     "typer>=0.27.1",
@@ -20,3 +21,6 @@ geg-toanki = "geg_toanki.cli:app"
 [build-system]
 requires = ["uv_build>=0.12.1,<0.13.0"]
 build-backend = "uv_build"
+
+[tool.uv.sources]
+geg-tomd = { path = "../geg-tomd" }

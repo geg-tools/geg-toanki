@@ -14,3 +14,6 @@ wheels/
 
 # Tests
 tests/
+
+# Temp files
+.geg/
