@@ -26,6 +26,7 @@
 
 ## Próximas funcionalidades
 
+- [ ] Diretório temporário com resumos, se quiser output, copia dele para o diretório de output
 - [ ] **Validação dos flashcards** — filtrar respostas vagas, duplicadas ou incompletas.
 - [ ] **Divisão em chunks** — processar conteúdos grandes em partes menores antes da geração.
 - [ ] **Preview no terminal** — visualizar cards antes de enviar ao Anki.
