@@ -12,42 +12,42 @@
 </p>
 
 <p align="center">
-  Ferramenta CLI para transformar materiais em Markdown em flashcards e enviá-los diretamente para o Anki, com suporte a geração automática de cartões por IA.
+  CLI tool for turning Markdown materials into flashcards and sending them directly to Anki, with support for automatic AI-powered card generation.
 </p>
 
-## Funcionalidades
+## Features
 
-- [x] Suporte a arquivos `.pdf`, `.txt` e `.md`
-- [x] Conversão de entrada para Markdown via `geg-tomd`
-- [x] Geração automática de flashcards com Gemini
-- [x] Criação de decks e subdecks no Anki
-- [x] Envio de cartões via AnkiConnect
-- [x] Organização dos cartões por estrutura de diretórios
+* [x] Support for `.pdf`, `.txt`, and `.md` files
+* [x] Convert input files to Markdown using `geg-tomd`
+* [x] Automatic flashcard generation with Gemini
+* [x] Create decks and subdecks in Anki
+* [x] Send cards via AnkiConnect
+* [x] Organize cards based on directory structure
 
-## Próximas funcionalidades
+## Upcoming Features
 
-- [ ] Diretório temporário com resumos, se quiser output, copia dele para o diretório de output
-- [ ] **Validação dos flashcards** — filtrar respostas vagas, duplicadas ou incompletas.
-- [ ] **Divisão em chunks** — processar conteúdos grandes em partes menores antes da geração.
-- [ ] **Preview no terminal** — visualizar cards antes de enviar ao Anki.
-- [ ] **Exportação para `.apkg`** — gerar pacotes de deck diretamente.
-- [ ] **Tags e personalização** — adicionar tags e configurações por disciplina/tópico.
-- [ ] **Tratamento de erros e logs** — melhorar diagnósticos e mensagens de falha.
-- [ ] **Testes automatizados** — cobrir parser, geração e integração com o Anki.
+* [ ] **Temporary directory management** — store summaries in a temporary directory and copy them to the output directory when requested.
+* [ ] **Flashcard validation** — filter out vague, duplicate, or incomplete answers.
+* [ ] **Chunking** — process large amounts of content in smaller chunks before generation.
+* [ ] **Terminal preview** — preview cards before sending them to Anki.
+* [ ] **`.apkg` export** — generate deck packages directly.
+* [ ] **Tags and customization** — add tags and per-subject/topic settings.
+* [ ] **Error handling and logging** — improve diagnostics and failure messages.
+* [ ] **Automated tests** — cover parsing, generation, and Anki integration.
 
-## Pré-requisitos
+## Prerequisites
 
-Antes de usar o projeto, confirme que você tenha:
+Before using the project, make sure you have:
 
-- Python 3.14+
-- `uv` instalado
-- Anki instalado localmente
-- AnkiConnect em execução
-- Chave da API Gemini configurada em `GEMINI_API_KEY`
+* Python 3.14+
+* `uv` installed
+* Anki installed locally
+* AnkiConnect running
+* A Gemini API key configured in `GEMINI_API_KEY`
 
-A aplicação também depende do pacote local `geg-tomd`, que é adicionado automaticamente no `pyproject.toml`.
+The application also depends on the local `geg-tomd` package, which is automatically added to `pyproject.toml`.
 
-## Instalação
+## Installation
 
 ```bash
 git clone https://github.com/gabrielescorelguerra/geg-toanki.git
@@ -56,52 +56,52 @@ cd geg-toanki
 uv sync
 ```
 
-Configure as variáveis de ambiente antes de executar a CLI:
+Configure the environment variables before running the CLI:
 
 ```bash
-export GEMINI_API_KEY="sua_chave_api"
+export GEMINI_API_KEY="your_api_key"
 export ANKI_CONNECT_URL="http://localhost:8765"
 ```
 
-## Uso
+## Usage
 
-### Ver ajuda
+### View Help
 
 ```bash
 uv run geg-toanki --help
 ```
 
-### Gerar cards a partir de um arquivo
+### Generate Cards from a File
 
 ```bash
-uv run geg-toanki create ./material.pdf --deck "Biologia" --subdecks
+uv run geg-toanki create ./material.pdf --deck "Biology" --subdecks
 ```
 
-### Gerar arquivos intermediários em Markdown
+### Generate Intermediate Markdown Files
 
 ```bash
-uv run geg-toanki create ./material.pdf --deck "História" --generate-md
+uv run geg-toanki create ./material.pdf --deck "History" --generate-md
 ```
 
-### Opções
+### Options
 
-| Opção | Descrição |
-| --- | --- |
-| `-d`, `--deck` | Nome do deck principal no Anki |
-| `-s`, `--subdecks` | Cria subdecks a partir da estrutura de diretórios |
-| `-m`, `--generate-md` | Gera arquivos intermediários em Markdown no diretório temporário |
-| `input_path_str` | Caminho do arquivo de entrada (PDF, TXT ou MD) |
+| Option                | Description                                                     |
+| --------------------- | --------------------------------------------------------------- |
+| `-d`, `--deck`        | Name of the main Anki deck                                      |
+| `-s`, `--subdecks`    | Create subdecks based on the directory structure                |
+| `-m`, `--generate-md` | Generate intermediate Markdown files in the temporary directory |
+| `input_path_str`      | Path to the input file (PDF, TXT, or MD)                        |
 
-## Fluxo do projeto
+## Project Workflow
 
-1. O arquivo de entrada é processado e convertido para Markdown.
-2. O conteúdo é lido em um diretório temporário `.geg/toanki/temp`.
-3. Cada arquivo Markdown é enviado para o modelo Gemini.
-4. O modelo retorna um JSON com flashcards estruturados.
-5. Os cards são enviados ao Anki via AnkiConnect.
+1. The input file is processed and converted to Markdown.
+2. The content is read from the `.geg/toanki/temp` temporary directory.
+3. Each Markdown file is sent to the Gemini model.
+4. The model returns a JSON object containing structured flashcards.
+5. The cards are sent to Anki via AnkiConnect.
 
-## Observações
+## Notes
 
-- O projeto usa `geg-tomd` como dependência local para converter conteúdos em Markdown antes da geração dos flashcards.
-- A integração com o Anki depende do AnkiConnect estar acessível no endpoint configurado.
-- O comando atual foi pensado para fluxo de estudo e geração de cards a partir de materiais acadêmicos ou de referência.
+* The project uses `geg-tomd` as a local dependency to convert content to Markdown before generating flashcards.
+* Anki integration requires AnkiConnect to be accessible at the configured endpoint.
+* The current command is designed for study workflows and generating flashcards from academic or reference materials.
